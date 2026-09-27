@@ -1,0 +1,22 @@
+aliases:
+  cow:
+    - cattle
+    - COW
+  chicken:
+    - Chicken
+    - "0"
+  sheep:
+    - ewe
+    - ram
+    - lamb
+  pig: []
+  aerial_sheep: []
+  aerial_cow: []
+
+keep_classes:
+  - sheep
+  - cow
+  - chicken
+  - pig
+  - aerial_sheep
+  - aerial_cow

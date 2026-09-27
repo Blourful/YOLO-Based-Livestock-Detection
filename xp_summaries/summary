@@ -1,0 +1,37 @@
+# Extreme Programming (XP) – Summary
+
+**Extreme Programming (XP)** is an agile software development methodology that emphasises collaboration, adaptability, and delivering high-quality software through frequent, small releases. Its core aim is to improve responsiveness to changing customer needs while maintaining code quality and team efficiency.
+
+---
+
+## Core Values
+
+- **Communication** – Open and continuous communication between team members and customers.  
+- **Simplicity** – Design only what is necessary to meet current requirements.  
+- **Feedback** – Frequent feedback from code, tests, and the customer.  
+- **Courage** – Readiness to make necessary changes, even if they are large.  
+- **Respect** – Mutual respect among all members for a productive environment.  
+
+---
+
+## Key Practices
+
+- **Pair Programming**  
+- **Test-Driven Development (TDD)**  
+- **Continuous Integration**  
+- **Collective Code Ownership**  
+- **Small, Frequent Releases**  
+- **Refactoring for Maintainability**  
+- **Sustainable Pace** (“40-hour week”)  
+
+---
+
+## Roles and Responsibilities
+
+- **Customer** – Defines requirements, sets priorities, provides ongoing feedback.  
+- **Programmer** – Writes and tests code, participates in design and refactoring, collaborates in pairs.  
+- **Tester** – Designs and automates tests, ensures quality and correctness of features.  
+- **Tracker** – Monitors project progress, collects metrics, and reports to the team.  
+- **Coach** – Ensures XP practices are followed, guides the team in methodology.  
+- **Manager** – Supports resources, removes roadblocks, facilitates communication.  
+- **Doomsayer** *(optional in some adaptations)* – Identifies risks, worst-case scenarios, and challenges assumptions.  

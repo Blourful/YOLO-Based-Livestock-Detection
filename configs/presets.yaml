@@ -1,0 +1,14 @@
+quick:
+  epochs: 10
+  batch: 16
+  imgsz: 640
+
+balanced:
+  epochs: 50
+  batch: 16
+  imgsz: 640
+
+strong:
+  epochs: 100
+  batch: 32
+  imgsz: 960

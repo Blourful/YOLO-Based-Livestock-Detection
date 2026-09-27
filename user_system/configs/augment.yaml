@@ -1,0 +1,87 @@
+# Augmentation configuration for YOLO dataset preprocessing
+# CLI resolution order: defaults < this config < CLI flags
+
+output: aug_output            # default output dir; if null and not in_place -> <data>_aug
+in_place: false         # if true, modify in place (destructive)
+seed: 123               # deterministic seed; CLI --seed overrides change it to null if you want to use random seed
+keep_original: true     # copy originals into output
+
+# Choose either counts OR multiplier (mutually exclusive)
+counts: 1               # augment each image N times
+multiplier: 3        # or target size multiple (e.g., 2 => ~2x images)
+
+prob_default: 0.3       # default per-op probability unless overridden per mode
+deterministic: true    # if true, always apply enabled augmentations (ignore probabilities)
+                        # deterministic=true: predictable, complete coverage, larger datasets
+                        # deterministic=false: random variation, controlled expansion, research standard
+
+# Performance settings
+max_workers: null       # number of parallel workers (null = auto-detect, 1 = sequential)
+batch_size: 32          # number of images to process in each batch (for memory management)
+use_optimizations: true # enable async I/O, memory pooling, and NumPy optimizations
+memory_pool_size: null  # memory pool size (null = auto-scale with workers)
+use_cuda: true          # enable CUDA GPU acceleration if available (auto-detects)
+cuda_device_id: 0       # specific CUDA device to use (0 = first GPU)
+
+modes:
+  # Horizontal flip: mirror left/right and update boxes
+  flip_h:
+    enabled: true
+    prob: 0.5
+  # Rotate: small-angle rotation; remap/clamp boxes
+  rotate:
+    enabled: true
+    prob: 0.3
+    max_deg: 12
+  # Shear: slant image along x/y; adjust boxes accordingly
+  shear:
+    enabled: false
+    prob: 0.2
+    max_deg: 8
+  # Translate: shift image content by a fraction; move boxes
+  translate:
+    enabled: true
+    prob: 0.2
+    max_frac: 0.06
+  # Scale: zoom in/out within range; rescale boxes
+  scale:
+    enabled: true
+    range: [0.85, 1.15]
+  # HSV jitter: vary hue/saturation/value; simulate lighting/color
+  hsv:
+    enabled: true
+    h: 0.015
+    s: 0.7
+    v: 0.4
+  # Blur: gaussian/motion blur; simulate motion/out-of-focus
+  blur:
+    enabled: true
+    prob: 0.15
+    ksize: [3, 5]
+  # Sharpen: increase local contrast; enhance edges/textures
+  sharpen:
+    enabled: true
+    prob: 0.1
+  # Grayscale: remove chroma; test robustness to color
+  grayscale:
+    enabled: true
+    prob: 0.05
+  # CLAHE: local contrast enhancement for low-light images
+  clahe:
+    enabled: true
+  # Mosaic: compose 4 images in a grid; diverse multi-object scenes
+  mosaic:
+    enabled: true
+    prob: 0.2
+  # MixUp: blend two images/labels; regularization
+  mixup:
+    enabled: true
+    prob: 0.1
+  # CutOut: random occlusion patches; robustness to partial visibility
+  cutout:
+    enabled: true
+    prob: 0.05
+    holes: 3
+    max_frac: 0.08
+
+
